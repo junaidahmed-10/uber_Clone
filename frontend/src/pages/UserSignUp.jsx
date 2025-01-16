@@ -12,7 +12,7 @@ const UserSignUp = () => {
   const submitHandler = (e) => {
     e.preventDefault()
     setUserData({
-      userName: {
+      fullName: {
         firstName: firstName,
         lastName: lastName
       },
@@ -75,7 +75,7 @@ const UserSignUp = () => {
             type="password" placeholder='password' />
           <button
             className='bg-[#111] text-white font-semibold mb-5 rounded px-4 py-2 w-full text-lg placeholder:base'
-          >Login</button>
+          >SignUp</button>
         </form>
         <p className='text-center'>Already have an Account?<Link to={'/login'} className='text-blue-700'>Login</Link></p>
 
