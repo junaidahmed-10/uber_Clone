@@ -1,24 +1,39 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { CaptainDataContext } from '../context/CaptainContext'
 
 const CaptainLogin = () => {
 
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-  
-    const [captain, setCaptainData] = useState({})
-  
-    const submitHandler = (e) => {
-      e.preventDefault()
-      setCaptainData({
-        email: email,
-        password
-      })
-      console.log(userData);
-      // console.log(email, password)
-      setEmail('')
-      setPassword('')
+  const [password, setPassword] = useState('')
+
+  const { captain, setCaptain } = useContext(CaptainDataContext)
+
+
+  const submitHandler = async (e) => {
+    e.preventDefault()
+    const captain = {
+      email: email,
+      password
     }
+    // console.log(userData);
+
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/login`, captain)
+    // console.log(email, password)
+
+    if (response.status === 200) {
+      const data = response.data
+      setCaptain(data.captain)
+      localStorage.setItem('token', data.token)
+      navigate('/captainHome')
+    }
+    setEmail('')
+    setPassword('')
+  }
 
   return (
     <div className='p-7 flex justify-between flex-col h-screen'>
@@ -49,9 +64,9 @@ const CaptainLogin = () => {
           <button
             className='bg-[#111] text-white font-semibold mb-3 rounded px-4 py-2 w-full text-lg placeholder:base'
           >Login</button>
-          </form>
-          <p className='text-center'>join a fleet? <Link to={'/captainSignup'} className='text-blue-700'>Register as a Captain</Link></p>
-        
+        </form>
+        <p className='text-center'>join a fleet? <Link to={'/captainSignup'} className='text-blue-700'>Register as a Captain</Link></p>
+
       </div>
 
       <div className="">
