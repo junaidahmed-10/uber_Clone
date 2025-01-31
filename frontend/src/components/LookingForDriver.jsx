@@ -1,9 +1,9 @@
 import React from 'react'
 
-const LookingForDriver = () => {
+const LookingForDriver = (props) => {
     return (
         <div>
-            <h5 onClick={() => props.setVehiclePanel(false)}
+            <h5 onClick={() => props.setVehicleFound(false)}
                 className='p-3 absolute top-0 w-full'><i className="text-3xl text-gray-300 ri-arrow-down-wide-line"></i></h5>
             <h2 className='text-2xl font-semibold mb-3'>Looking for a Driver</h2>
 

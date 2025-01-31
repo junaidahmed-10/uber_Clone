@@ -3,7 +3,9 @@ import React from 'react'
 const ConfirmedRide = (props) => {
     return (
         <div>
-            <h5 onClick={() => props.setConfirmedRidePanel(false)}
+            <h5 onClick={() => {
+                props.setConfirmedRidePanel(false)
+            }}
                 className='p-3 absolute top-0 w-full'><i className="text-3xl text-gray-300 ri-arrow-down-wide-line"></i></h5>
             <h2 className='text-2xl font-semibold mb-3'>Confirm Your Ride</h2>
 
@@ -36,7 +38,7 @@ const ConfirmedRide = (props) => {
                     props.setVehicleFound(true)
                     props.setConfirmedRidePanel(false)
                 }}
-                className='w-full bg-green-500 text-white font-semibold p-2 rounded-lg mt-5'>Confirm</button>
+                    className='w-full bg-green-500 text-white font-semibold p-2 rounded-lg mt-5'>Confirm</button>
             </div>
         </div>
 
