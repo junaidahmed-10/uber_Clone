@@ -9,7 +9,10 @@ router.get('/getCoordinates',
     query('address').isString().isLength({ min: 3 }),
     authMiddleware.authUser, mapController.getCoordinates)
 
-
+router.get('/getDistanceTime', query('origin').isString().isLength({ min: 3 }),
+    query("destination").isString().isLength({ min: 3 }),
+    authMiddleware.authUser, mapController.getDistanceTime
+)
 
 
 module.exports = router
