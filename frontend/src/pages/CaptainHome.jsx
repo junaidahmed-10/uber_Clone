@@ -52,11 +52,11 @@ const CaptainHome = () => {
 
       </div>
 
-      <div className="h-2/5 p-6">
+      <div className="h-2/5 p-6">  {/* ""*/}
         <CaptainDetails />
       </div>
 
-      <div ref={ridePopUpPanelRef} className="fixed w-full z-10 bottom-0 -translate-y-full bg-white p-3 py-10 pt-12">
+      <div ref={ridePopUpPanelRef} className="fixed w-full z-10 bottom-0 translate-y-full bg-white p-3 py-10 pt-12">
         <RidePopUp setRidePopUpPanel={setRidePopUpPanel} setConfirmRidePopUpPanel={setConfirmRidePopUpPanel} />
       </div>
 

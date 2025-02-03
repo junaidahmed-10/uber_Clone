@@ -15,7 +15,7 @@ const FinishRide = (props) => {
                     <img className="h-10 w-10 rounded-full object-cover" src="https://triplogmileage.com/wp-content/uploads/2023/02/uber-driver-looking-out-of-their-window.jpg" alt="" />
                     <h2 className='text-lg font-medium'>leonel messi</h2>
                 </div>
-                <h5>2.2 km</h5>
+                <h5 className='text-lg font-semibold'>2.2 km</h5>
             </div>
 
             <div className="flex gap-2 flex-col justify-between items-center">
