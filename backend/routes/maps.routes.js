@@ -14,5 +14,11 @@ router.get('/getDistanceTime', query('origin').isString().isLength({ min: 3 }),
     authMiddleware.authUser, mapController.getDistanceTime
 )
 
+router.get('/getSuggestions',
+    query('input').isString().isLength({ min: 3 }),
+    authMiddleware.authUser,
+    mapController.getAutoCompleteSuggestions
+)
+
 
 module.exports = router
