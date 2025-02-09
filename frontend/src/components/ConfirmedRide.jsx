@@ -16,20 +16,20 @@ const ConfirmedRide = (props) => {
                         <i className="ri-map-pin-5-fill"></i>
                         <div className="">
                             <h3 className='text-lg font font-medium'>235/74</h3>
-                            <p className='text-sm text-gray-700 -mt-1'>sea face bandra, mannat</p>
+                            <p className='text-sm text-gray-700 -mt-1'>{props.pickup}</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-5 p-3 border-b-2">
                         <i className="text-lg ri-map-pin-2-fill"></i>
                         <div className="">
                             <h3 className='text-lg font font-medium'>235/74</h3>
-                            <p className='text-sm text-gray-700 -mt-1'>sea face bandra, mannat</p>
+                            <p className='text-sm text-gray-700 -mt-1'>{props.destination}</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-5 p-3">
                         <i className="ri-money-dollar-box-line"></i>
                         <div className="">
-                            <h3 className='text-lg font font-medium'>$198/-</h3>
+                            <h3 className='text-lg font font-medium'>₹.{props.fare[ props.vehicleType ]}/-</h3>
                             <p className='text-sm text-gray-700 -mt-1'>Cash</p>
                         </div>
                     </div>
@@ -37,6 +37,7 @@ const ConfirmedRide = (props) => {
                 <button onClick={() => {
                     props.setVehicleFound(true)
                     props.setConfirmedRidePanel(false)
+                    props.createRide()
                 }}
                     className='w-full bg-green-500 text-white font-semibold p-2 rounded-lg mt-5'>Confirm</button>
             </div>

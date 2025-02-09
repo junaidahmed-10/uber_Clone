@@ -1,34 +1,31 @@
 import React from 'react'
 import 'remixicon/fonts/remixicon.css'
 
-const LocationSearchPanel = (props) => {
+const LocationSearchPanel = ({ suggestions, setVehiclePanel, setPanelOpen, setPickup, setDestination, activeField }) => {
 
 
-  console.log(props);
+  // console.log(props);
 
-  const locations = [
-    "203,B14, R euphoria,Near Fire Station, kondhwa, pune",
-    "204,B14, R euphoria,Near Fire Station, kondhwa, pune",
-    "205,B14, R euphoria,Near Fire Station, kondhwa, pune",
-    "206,B14, R euphoria,Near Fire Station, kondhwa, pune"
-  ]
+  const handleSuggestionClick = (suggestion) => {
+    if (activeField === 'pickup') {
+      setPickup(suggestion)
+    } else if (activeField === 'destination') {
+      setDestination(suggestion)
+    }
+    // setVehiclePanel(true)
+    // setPanelOpen(false)
+  }
 
   return (
     <div>
-
+      {/* Display fetched suggestions */}
       {
-        locations.map(function (element, index) {
-          return <div key={index}
-            onClick={() => {
-              props.setVehiclePanel(true)
-              props.setPanelOpen(false)
-            }}
-            className="flex items-center justify-start gap-4 my-2 border-2 p-3 rounded-xl border-gray-200 active:border-black">
-            <h2 className='bg-[#eee] h-8 w-12 flex items-center justify-center rounded-full'><i className="ri-map-pin-2-fill"></i></h2>
-            <h4 className='font-medium'>{element}</h4>
+        suggestions.map((elem, idx) => (
+          <div key={idx} onClick={() => handleSuggestionClick(elem)} className='flex gap-4 border-2 p-3 border-gray-50 active:border-black rounded-xl items-center my-2 justify-start'>
+            <h2 className='bg-[#eee] h-8 flex items-center justify-center w-12 rounded-full'><i className="ri-map-pin-fill"></i></h2>
+            <h4 className='font-medium'>{elem}</h4>
           </div>
-        }
-        )
+        ))
       }
     </div>
   )
